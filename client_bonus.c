@@ -14,6 +14,24 @@
 
 int	g_is_received;
 
+int	main(int argc, char *argv[])
+{
+	struct sigaction	siga;
+	int					pid;
+
+	if (argc != 3)
+		return (ft_printf("Invalid number of arguments.\n"));
+	if (ft_validate_pid(argv[1]))
+		return (ft_printf("Invalid PID. Insert a valid PID.\n"));
+	siga.sa_flags = 0;
+	siga.sa_handler = ft_received;
+	sigaction(SIGUSR1, &siga, NULL);
+	sigaction(SIGUSR2, &siga, NULL);
+	pid = atoi(argv[1]);
+	ft_send_message(pid, argv[2]);
+	return (0);
+}
+
 void	ft_received(int sig)
 {
 	if (sig == SIGUSR1)
@@ -43,26 +61,16 @@ void	ft_send_signal(int pid, char c)
 	}
 }
 
-int	main(int argc, char *argv[])
+void	ft_send_message(int pid, char *str)
 {
-	struct sigaction	siga;
-	int					pid;
-	int					i;
+	int	i;
 
-	if (argc != 3)
-		return (ft_printf("Quantidade de argumentos inválida."));
-	siga.sa_flags = 0;
-	siga.sa_handler = ft_received;
-	sigaction(SIGUSR1, &siga, NULL);
-	sigaction(SIGUSR2, &siga, NULL);
-	pid = atoi(argv[1]);
 	i = 0;
-	while (argv[2][i])
+	while (str[i])
 	{
-		ft_send_signal(pid, argv[2][i]);
+		ft_send_signal(pid, str[i]);
 		i++;
 	}
 	ft_send_signal(pid, '\n');
 	ft_send_signal(pid, '\0');
-	return (0);
 }

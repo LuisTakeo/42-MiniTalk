@@ -21,5 +21,6 @@
 void	ft_send_message(int pid, char *str);
 void	ft_send_signal(int pid, char c);
 void	ft_received(int sig);
+int		ft_validate_pid(char *pid);
 
 #endif

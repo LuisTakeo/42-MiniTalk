@@ -18,4 +18,6 @@
 # include <unistd.h>
 # include "libs/libft/libft.h"
 
+void	handler(int n, siginfo_t *info, void *ucontext);
+
 #endif
