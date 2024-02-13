@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	siga.sa_handler = ft_received;
 	sigaction(SIGUSR1, &siga, NULL);
 	sigaction(SIGUSR2, &siga, NULL);
-	pid = atoi(argv[1]);
+	pid = ft_atoi(argv[1]);
 	ft_send_message(pid, argv[2]);
 	return (0);
 }

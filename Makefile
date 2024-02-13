@@ -34,7 +34,7 @@ all: libft $(NAME) $(NAME_SERVER)
 
 bonus: libft $(NAME_B) $(NAME_SERVER_B)
 	@echo "Pronto!"
-	@echo "Utilize './$(NAME_SERVER-B)' para obter o PID do server."
+	@echo "Utilize './$(NAME_SERVER_B)' para obter o PID do server."
 	@echo "Utilize './$(NAME_B) <PID> <text_message>' para enviar uma mensagem ao server."
 
 libft:
@@ -42,7 +42,7 @@ libft:
 	@make all bonus new_fun -C $(LIBFT) $(FLAGS) --no-print-directory
 
 %.o: %.c %.h
-	@$(CC) $(FLAGS) $(FLAGSOMLX) -o $@ -c $< && echo "Compilando: $(notdir $<)"
+	@$(CC) $(FLAGS) -o $@ -c $< && echo "Compilando: $(notdir $<)"
 
 $(NAME): $(OBJS_CLIENT)
 	@echo "Criando ./$(NAME)"

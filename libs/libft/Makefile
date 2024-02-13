@@ -6,7 +6,7 @@
 #    By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 18:38:35 by tpaim-yu          #+#    #+#              #
-#    Updated: 2024/02/13 15:15:50 by tpaim-yu         ###   ########.fr        #
+#    Updated: 2024/02/13 16:24:46 by tpaim-yu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,13 +77,10 @@ ${NAME}: ${OBJ}
 	@echo "Arquivos da Libft compilados com sucesso!"
 
 all: ${NAME}
-	@echo "Pronto!"
 
 bonus: ${OBJ_BONUS}
-	@echo "Pronto!"
 
 new_fun: ${OBJ_NEW_FUN}
-	@echo "Pronto!"
 
 clean:
 	@echo "Limpando objetos da Libft..."
