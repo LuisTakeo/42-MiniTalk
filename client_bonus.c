@@ -61,6 +61,20 @@ void	ft_send_signal(int pid, char c)
 	}
 }
 
+int	ft_validate_pid(char *pid)
+{
+	int	i;
+
+	i = 0;
+	while (pid[i])
+	{
+		if (!ft_isdigit(pid[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 void	ft_send_message(int pid, char *str)
 {
 	int	i;

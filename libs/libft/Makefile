@@ -6,7 +6,7 @@
 #    By: tpaim-yu <tpaim-yu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 18:38:35 by tpaim-yu          #+#    #+#              #
-#    Updated: 2024/01/10 19:56:07 by tpaim-yu         ###   ########.fr        #
+#    Updated: 2024/02/13 15:15:50 by tpaim-yu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,15 +74,16 @@ OBJ_BONUS = ${SRC_BONUS:%.c=%.o}
 OBJ_NEW_FUN = ${SRC_NEW_FUN:%.c=%.o}
 
 ${NAME}: ${OBJ}
-
-all: ${NAME}
 	@echo "Arquivos da Libft compilados com sucesso!"
 
+all: ${NAME}
+	@echo "Pronto!"
+
 bonus: ${OBJ_BONUS}
-	@echo "Arquivos bonus compilados com sucesso!"
+	@echo "Pronto!"
 
 new_fun: ${OBJ_NEW_FUN}
-	@echo "Funções adicionais adicionadas com sucesso!"
+	@echo "Pronto!"
 
 clean:
 	@echo "Limpando objetos da Libft..."

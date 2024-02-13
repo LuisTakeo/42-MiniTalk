@@ -28,10 +28,14 @@ OBJS_CLIENT_B = ${SRC_CLIENT_B:%.c=%.o}
 OBJS_SERVER_B = ${SRC_SERVER_B:%.c=%.o}
 
 all: libft $(NAME) $(NAME_SERVER)
-	@echo "Concluido!"
+	@echo "Pronto!"
+	@echo "Utilize './$(NAME_SERVER)' para obter o PID do server."
+	@echo "Utilize './$(NAME) <PID> <text_message>' para enviar uma mensagem ao server."
 
 bonus: libft $(NAME_B) $(NAME_SERVER_B)
-	@echo "Concluido!"
+	@echo "Pronto!"
+	@echo "Utilize './$(NAME_SERVER-B)' para obter o PID do server."
+	@echo "Utilize './$(NAME_B) <PID> <text_message>' para enviar uma mensagem ao server."
 
 libft:
 	@echo "Compilando Libft..."
@@ -43,33 +47,35 @@ libft:
 $(NAME): $(OBJS_CLIENT)
 	@echo "Criando ./$(NAME)"
 	@$(CC) $(OBJS_CLIENT) $(LIBS) $(INCLUDES) -o $(NAME)
+	@echo "Concluido!"
 
 $(NAME_SERVER): $(OBJS_SERVER)
 	@echo "Criando ./$(NAME_SERVER)"
 	@$(CC) $(OBJS_SERVER) $(LIBS) $(INCLUDES) -o $(NAME_SERVER)
+	@echo "Concluido!"
 
 $(NAME_B): $(OBJS_CLIENT_B)
 	@echo "Criando arquivo $(NAME_B)"
 	@$(CC) $(OBJS_CLIENT_B) $(LIBS) $(INCLUDES) -o $(NAME_B)
+	@echo "Concluido!"
 
 $(NAME_SERVER_B): $(OBJS_SERVER_B)
 	@echo "Criando ./$(NAME_SERVER_B)"
 	@$(CC) $(OBJS_SERVER_B) $(LIBS) $(INCLUDES) -o $(NAME_SERVER_B)
+	@echo "Concluido!"
 
 clean:
 	@echo "Limpando objects..."
 	@rm -rf $(OBJS_CLIENT) $(OBJS_CLIENT_B) $(OBJS_SERVER) $(OBJS_SERVER_B)
 	@make clean -C $(LIBFT) --no-print-directory
-	@echo "Limpando build..."
-	@rm -rf $(LIBMLX)/build
 	@echo "Feito!"
 
 
 fclean: clean
 	@echo "Removendo libft.a..."
 	@make fclean -C $(LIBFT) --no-print-directory
-	@echo "Removendo executável..."
-	@rm -rf $(NAME) $(NAME_BONUS)
+	@echo "Removendo executáveis..."
+	@rm -rf $(NAME) $(NAME_B) $(NAME_SERVER) $(NAME_SERVER_B)
 	@echo "Feito!"
 
 re: fclean all
